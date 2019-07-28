@@ -3,9 +3,9 @@
         <div class="wrapper">
             <swiper :options="swiperOptions">
                 <swiper-slide
-                    v-for="item of imgs"
-                    :key="item.id">
-                    <img class="gallary-img" :src="item.imgUrl" >
+                    v-for="(item, index) of imgs"
+                    :key="index">
+                    <img class="gallary-img" :src="item" >
                 </swiper-slide>
                 <div class="swiper-pagination"  slot="pagination"></div>
             </swiper>
@@ -17,12 +17,7 @@
 export default {
   name: 'CommonGallary',
   props: {
-    imgs: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
+    imgs: Array
   },
   data () {
     return {
